@@ -10,6 +10,7 @@
 <body>
     <h1>This is static content</h1>
     <script type="text/javascript">
+        var count = 0;
 
         function sayHello() {
             alert('You hit!');
@@ -114,6 +115,22 @@
                 console.error(ex);
             }
         }
+
+        function arraySample() {
+            var simpleBox = "hello";
+
+            var fruits = ["apples", "watermelon","grapes"];
+            var years = [1970, 1980, 1990, 2010];
+
+            console.log(simpleBox);
+            console.log(fruits);
+
+            var text = document.createElement("h2");
+            var section = document.getElementById("dynamicSection");
+
+            text.innerHTML = fruits;
+            section.appendChild(text);
+        }
     </script>
 
     <section id="dynamicSection">
@@ -125,6 +142,8 @@
                 Hit me </button> 
 
         <button onclick="askForWeather()">Check weather</button>
+    
+        <button onclick="arraySample()">Array example</button>
     </section>
 
 </body>
