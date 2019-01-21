@@ -54,6 +54,10 @@ function toggleHighlight(){
     textSection.className = "highlight";
 }
 
+function call123() {
+    
+}
+
 
 
 
