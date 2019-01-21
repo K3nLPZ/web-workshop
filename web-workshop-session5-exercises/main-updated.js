@@ -58,17 +58,16 @@ function paint () {
 function toggleHighlight() {
     var textSection  = document.getElementById("textSection");
     
-    if(textSection.classList.contains("highlight")) 
-    {
-        textSection.classList.remove("highlight");
-    } 
-    else 
-    {
-        textSection.classList.add("highlight");
-    }
+    textSection.classList.toggle("highlight");
+    
+    //if(textSection.classList.contains("highlight")) 
+    //{
+      //  textSection.classList.remove("highlight");
+  //  } 
+   // else 
+   // {
+  //      textSection.classList.add("highlight");
+ //   }
 }
     
 
-function call123() {
-
-}
