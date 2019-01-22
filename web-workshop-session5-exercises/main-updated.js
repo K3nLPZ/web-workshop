@@ -55,10 +55,12 @@ function paint () {
     
 //}
 
+var isToggled = false; 
+
 function toggleHighlight() {
     var textSection  = document.getElementById("textSection");
     
-    textSection.classList.toggle("highlight");
+//    textSection.classList.toggle("highlight");
     
     //if(textSection.classList.contains("highlight")) 
     //{
@@ -68,6 +70,18 @@ function toggleHighlight() {
    // {
   //      textSection.classList.add("highlight");
  //   }
+isToggled = !isToggled;
+
+ if(isToggled){
+     console.log("highlight");
+     textSection.classList.add("highlight");
+ }
+ else{
+     console.log("no highlight");
+     textSection.classList.remove("highlight");
+ }
 }
-    
+   
+
+
 
