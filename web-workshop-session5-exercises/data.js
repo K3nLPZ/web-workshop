@@ -1,14 +1,13 @@
-//var students = ["john", "larry", "joseph"]; //this is to make a list
-
 var students = [
-    {name: "John", score: 90 }, 
-    {name: "Larry", score: 60 }, 
-    {name: "Joseph", score: 50 }, 
+    {id: "1122222", name: "John", score: 90 }, // 0 {Object} => students[0] => students[0].score => total  
+    {id: "2223333", name: "Larry", score: 60 }, // 1
+    {id: "4455555", name: "Joseph", score: 50 }, // 2
+    {id: "5526666", name: "Karla", score: 80 }//3
 ];
 
 //document.writeln(students.length);
 document.write("<pre>");
-document.write(JSON.stringify(students, undefined, 2)); //stringify toma un objeto, da formato json//el 2 es espaciado
+document.write(JSON.stringify(students, undefined, 2));
 document.write("</pre>");
 
 var names = [];
@@ -19,38 +18,74 @@ students.forEach(student => {
 
 document.writeln(names);
 
-document.writeln("Average: {calculateAverage()}");
-document.writeln("Average")
-//document.write(students.length);//this adds data to the document / the lenght will show the lenght of words of the list
-
+document.write("<pre>");
+document.writeln("Average: " + calculateAverage());
+document.writeln(`Average: ${calculateAverage()}`);
+document.write("</pre>");
 
 function calculateAverage(){
+
     var average = 0;
+    students.forEach(student => {
+        average = average + student.score;
+    });
+    average = average / students.length;
 
     return average;
 }
-//this function is linked to the button in the working with data sheet
+
 function loadData(){
-    var i = 0; //counter initiating on 0
-    let dataList = document.getElementById("dataList"); //the id was set as dataList in the linked sheet, from the DOM
 
+    var i = 0;
+    let dataList = document.getElementById("dataList");
+    
     while (i < students.length)
-    
     {
-        var listItem = document.createElement("li");
-        console.log(students[i]); //the brackets will avoid to print the same thing over and over 
-        listItem.innerText = students[i].name; //esta parte hace que la lista se muestre vertical cuando se toca el boton
-
-         //the append child will allow to add items to a list 
-        dataList.appendChild(listItem); //
+        var listItem = document.createElement("div");
         
-        i = i + 1; //in this case the i will initialize in 0 and everytime is run again, will add a new item secualtially, another option would be to use i++ which is the same syntaxis,  it works as an increment
+        console.log(students[i]);
+        listItem.classList.add("row");
 
-         //other ways to add items:
-        //i += 2 esto agrega de 2 en 2
-        //i += 3 esta parte agregaria de 3 en 3  
-        
+        var id = document.createElement("section");
+        id.innerText = students[i].id;
+        listItem.appendChild(id);
+        id.classList.add("col-md-4");
+
+        var name = document.createElement("section");
+        name.innerText = students[i].name;
+        listItem.appendChild(name);
+        name.classList.add("col-md-4");
        
+        var score = document.createElement("section");
+        score.innerText = students[i].score;
+        listItem.appendChild(score);
+        score.classList.add("col-md-4");
+
+        dataList.appendChild(listItem);
+        i = i + 1; // Alternatively, use i++;
+
+        // Other ways:
+        // i += 2;
+        // i += 3;
+        
     }
-    
 }
+
+function displayAverage()
+{
+    var resultSection = document.getElementById("resultSection");
+    var paragraph = document.createElement("p");
+        
+    paragraph.innerText = "Average: " + calculateAverage();
+
+    resultSection.appendChild(paragraph);
+}
+
+function myReplacer(name, val) {
+    if (typeof val === 'string') {
+        return val.toString().toUpperCase();  
+     } else {
+        return val; // return as is
+    }
+};
+
