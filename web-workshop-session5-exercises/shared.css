@@ -8,5 +8,6 @@ body {
 
 .low {
     color: red;
-
+    font-weight: "bold";
+    border-style: solid;
 }
