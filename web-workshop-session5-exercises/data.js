@@ -55,7 +55,8 @@ function loadDataGrid() {
         score.classList.add("col-sm");
         score.innerText =  students[i].score;
         if(students[i].score<=60)
-        score.classList.add("low");
+        score.style.color="red";
+        //score.classList.add("low"); esta es otra manera de hacer lo mismo, pero llama una class en shared.css
 
         console.log(students[i]);
 
