@@ -3,31 +3,41 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Working_with_data</title>
+    <title>Working with data</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="shared.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <script src="data.js"></script>
 </head>
-<body>
-    <h1>List of Students</h1>
-
-    <br>
+<body class="container" onload="loadDataGrid()">
+    <header class="jumbotron">
+        <h1>List of students</h1>
+    </header>
     
-    <div class="container" id="dataList">
-        <div class="row">
-                <section class="col-md-4" style="background-color:aquamarine;">Id</section>
-                <section class="col-md-4" style="background-color:aquamarine;">Name</section>
-                <section class="col-md-4" style="background-color:aquamarine;">Score</section>
-        </div>
-    </div>
-    
-    <br><br>
-   
-    <section>
-        <button onclick="loadData()">Load</button> <!--in this case the button will allow to upload student information when clicking-->
-        <button onclick="displayAverage()">Average</button>
+    <section class="row-fluid">
+        <section class="btn-group">
+            <button class="btn btn-primary" onclick="loadDataGrid()">Load</button>
+            <button class="btn btn-secondary" onclick="displayAverage()">Average</button>
+        </section>
     </section>
-  
+    <section class="row-fluid">
+        <section id="dataList" class="border">
+            <div class="row">
+                <div class="col-md">
+                    <b>Id</b>
+                </div>
+                <div class="col-md">
+                    <b>Name</b>
+                </div>
+                <div class="col-md">
+                    <b>Score</b>
+                </div>
+            </div>
+        </section>
+    </section>
+    <section class="row-fluid">
+        <section id="resultSection" class="alert alert-info">
+        </section>
+    </section>
 </body>
 </html>
