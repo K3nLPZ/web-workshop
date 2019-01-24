@@ -54,6 +54,8 @@ function loadDataGrid() {
         var score = document.createElement("div");
         score.classList.add("col-sm");
         score.innerText =  students[i].score;
+        if(students[i].score<=60)
+        score.classList.add("low");
 
         console.log(students[i]);
 
@@ -68,6 +70,7 @@ function loadDataGrid() {
         // Other ways:
         // i += 2;
         // i += 3;
+
     }
 }
 
@@ -112,3 +115,4 @@ function loadData(){
         // i += 3;
     }
 }
+
