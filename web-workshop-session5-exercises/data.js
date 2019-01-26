@@ -1,9 +1,4 @@
-var students = [
-    {id: "1122222", name: "John", score: 90 }, // 0 {Object} => students[0] => students[0].score => total  
-    {id: "2223333", name: "Larry", score: 60 }, // 1
-    {id: "4455555", name: "Joseph", score: 50 }, // 2
-    {id: "5526666", name: "Karla", score: 80}
-];
+var students = [];
 
 document.write("<h3>JSON</h3>");
 document.write("<pre class='alert alert-secondary'>"); // 1) Bootstrap class
@@ -54,11 +49,12 @@ function loadDataGrid() {
         var score = document.createElement("div");
         score.classList.add("col-sm");
         score.innerText =  students[i].score;
-        if(students[i].score<=60)
-        score.style.color="red"
-        score.style.fontWeight="bold"
-        score.style.borderStyle= "solid";     
-        //score.classList.add("low"); esta es otra manera de hacer lo mismo, pero llama una class en shared.css
+
+        var currentScore = students[i].score;
+        if (currentScore < document.getElementById("scoreInput").value)
+        {
+            score.classList.add("lowScore");
+        }
 
         console.log(students[i]);
 
@@ -73,7 +69,6 @@ function loadDataGrid() {
         // Other ways:
         // i += 2;
         // i += 3;
-
     }
 }
 
@@ -85,8 +80,17 @@ function displayAverage()
     paragraph.classList.add("badge-info");
 
     paragraph.innerText = "Average: " + calculateAverage();
-
+    
     resultSection.appendChild(paragraph);
+}
+
+function refreshScores(){
+    let dataList = document.getElementById("dataList");
+
+    while (dataList.childElementCount > 1){
+        dataList.removeChild(dataList.lastChild);
+    }
+    loadDataGrid();
 }
 
 function myReplacer(name, val) {
@@ -119,3 +123,19 @@ function loadData(){
     }
 }
 
+function fetchData() {
+    var request = new XMLHttpRequest();
+    request.open('GET', '/api/products', true);
+    
+    request.onload = function() {
+      if (request.status !== 200) {
+        body.innerHTML = 'An error occurred during your request: ' +  request.status + ' ' + request.statusText;
+        return;
+      }
+      renderTable(JSON.parse(request.responseText));
+    };
+    request.onerror = function() {
+        body.innerHTML = 'An error occurred during your request: ' +  request.status + ' ' + request.statusText;
+    };
+    request.send();
+}

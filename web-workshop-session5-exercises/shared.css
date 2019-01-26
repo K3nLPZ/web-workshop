@@ -6,8 +6,6 @@ body {
     background-color: yellow;
 }
 
-.low {
+.lowScore {
     color: red;
-    font-weight: "bold";
-    border-style: solid;
 }
