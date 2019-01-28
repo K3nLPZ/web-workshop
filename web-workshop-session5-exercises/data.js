@@ -10,7 +10,7 @@ var students = [
 // document.write(JSON.stringify(students, undefined, 2));
 // document.write("</pre>");
 // document.write("<br/>");
-// var names = [];
+var names = [];
 
 students.forEach(student => {
     names.push(student.name);

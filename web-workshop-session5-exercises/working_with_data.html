@@ -13,7 +13,6 @@
     <header class="jumbotron">
         <h1>List of students</h1>
     </header>
-    <!-- Button trigger modal -->
     <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
         Add este boton se paso al grupo de botones para que quedaran al mismo nivel
     </button> -->
@@ -73,10 +72,11 @@
 
     <section class="row-fluid">
         <section class="btn-group">
+                <!-- este boton inicializa la parte de modal  -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Add</button> 
-            <button class="btn btn-primary" onclick="loadDataGrid()">Load</button> 
-            
+                        Add</button> &nbsp;  <!-- este codigo &nbsp; permite que los botones se vean separados cuando se ven en el website -->
+            <button class="btn btn-primary" onclick="loadDataGrid()">Load</button> &nbsp;
+           
             <button class="btn btn-secondary" onclick="displayAverage()">Average</button>
         </section>
         <section class="row-fluid">
