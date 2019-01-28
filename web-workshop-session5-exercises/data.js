@@ -1,4 +1,9 @@
-var students = [];
+var students = [
+    {id: "1122222", name: "John", score: 90 }, // 0 {Object} => students[0] => students[0].score => total  
+    {id: "2223333", name: "Larry", score: 60 }, // 1
+    {id: "4455555", name: "Joseph", score: 50 }, // 2
+    {id: "5526666", name: "Karla", score: 80}
+];
 
 document.write("<h3>JSON</h3>");
 document.write("<pre class='alert alert-secondary'>"); // 1) Bootstrap class
@@ -45,17 +50,18 @@ function loadDataGrid() {
         var name = document.createElement("div");
         name.classList.add("col-sm");
         name.innerText =  students[i].name;
+        
+        var currentScore = students[i].score;
 
         var score = document.createElement("div");
         score.classList.add("col-sm");
         score.innerText =  students[i].score;
 
-        var currentScore = students[i].score;
-        if (currentScore < document.getElementById("scoreInput").value)
+        var passingScore = document.getElementById("passingScoreInput").value;
+        if (currentScore <= passingScore)
         {
             score.classList.add("lowScore");
         }
-
         console.log(students[i]);
 
         dataList.appendChild(listItem);
@@ -80,7 +86,7 @@ function displayAverage()
     paragraph.classList.add("badge-info");
 
     paragraph.innerText = "Average: " + calculateAverage();
-    
+
     resultSection.appendChild(paragraph);
 }
 
@@ -91,6 +97,21 @@ function refreshScores(){
         dataList.removeChild(dataList.lastChild);
     }
     loadDataGrid();
+}
+
+function addNewStudent()
+{
+    var scoreInput = document.getElementById("scoreInput").value;    
+    var nameInput = document.getElementById("nameInput").value;
+    var idInput = document.getElementById("idInput").value;
+
+    students.push({
+        id: idInput,
+        name: nameInput,
+        score: scoreInput
+    });
+
+    refreshScores();
 }
 
 function myReplacer(name, val) {
@@ -121,21 +142,4 @@ function loadData(){
         // i += 2;
         // i += 3;
     }
-}
-
-function fetchData() {
-    var request = new XMLHttpRequest();
-    request.open('GET', '/api/products', true);
-    
-    request.onload = function() {
-      if (request.status !== 200) {
-        body.innerHTML = 'An error occurred during your request: ' +  request.status + ' ' + request.statusText;
-        return;
-      }
-      renderTable(JSON.parse(request.responseText));
-    };
-    request.onerror = function() {
-        body.innerHTML = 'An error occurred during your request: ' +  request.status + ' ' + request.statusText;
-    };
-    request.send();
 }
