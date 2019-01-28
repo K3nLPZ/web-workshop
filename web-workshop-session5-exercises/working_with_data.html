@@ -14,9 +14,9 @@
         <h1>List of students</h1>
     </header>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Launch demo modal
-    </button>
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Add este boton se paso al grupo de botones para que quedaran al mismo nivel
+    </button> -->
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -41,12 +41,12 @@
                         <label for="scoreInput">Score</label>
                         <input id="scoreInput" class="form-control" type="number" onchange="refreshScores()" placeholder="Enter score" />
                     </div>
-                    <button class="btn btn-primary" onclick="addNewStudent()">Add</button>
+                    <!-- <button class="btn btn-primary" onclick="addNewStudent()">Add</button> -->
                 </section>
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> este boton hace lo mismo que la parte de data-dismiss="modal" del boton de save, solo que lo ponemos en el mismo boton para que no solo cargue la informacion nueva sino que cierre la caja de dialogo una vez que termine de salvar-->
+            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="addNewStudent()">Save</button>
             </div>
         </div>
         </div>
@@ -73,7 +73,9 @@
 
     <section class="row-fluid">
         <section class="btn-group">
-            <button class="btn btn-primary" onclick="loadDataGrid()">Load</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Add</button> 
+            <button class="btn btn-primary" onclick="loadDataGrid()">Load</button> 
             
             <button class="btn btn-secondary" onclick="displayAverage()">Average</button>
         </section>
@@ -105,5 +107,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script> 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <pre id="jsonData"></pre>
 </body>
 </html>

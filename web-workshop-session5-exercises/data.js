@@ -5,12 +5,12 @@ var students = [
     {id: "5526666", name: "Karla", score: 80}
 ];
 
-document.write("<h3>JSON</h3>");
-document.write("<pre class='alert alert-secondary'>"); // 1) Bootstrap class
-document.write(JSON.stringify(students, undefined, 2));
-document.write("</pre>");
-document.write("<br/>");
-var names = [];
+// document.write("<h3>JSON</h3>");
+// document.write("<pre class='alert alert-secondary'>"); // 1) Bootstrap class
+// document.write(JSON.stringify(students, undefined, 2));
+// document.write("</pre>");
+// document.write("<br/>");
+// var names = [];
 
 students.forEach(student => {
     names.push(student.name);
@@ -21,6 +21,7 @@ document.writeln("Students are:" + names);
 document.write("<pre>");
 document.writeln(`Average: ${calculateAverage()}`);
 document.write("</pre>");
+
 
 function calculateAverage(){
 
@@ -143,3 +144,4 @@ function loadData(){
         // i += 3;
     }
 }
+
